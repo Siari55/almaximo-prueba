@@ -66,29 +66,29 @@ FOREIGN KEY relprodsupp(idsupplier) REFERENCES tblsuppliers(idsupplier);
 -- catproducttypes
 INSERT INTO catproducttypes(vname, vdescription, bstatus, dcreate, dupdate)
 VALUES 
-	('A1', 'Ferreteria', 1, default, null), 
-	('B2', 'Mascotas', 1, default, null), 
-	('C3', 'Electronica', 1, default, null), 
-	('D4', 'Línea blanca', 1, default, null), 
-	('E5', 'Comida', 1, default, null);
+	('A1', 'Ferreteria', 1, CURRENT_TIMESTAMP, null), 
+	('B2', 'Mascotas', 1, CURRENT_TIMESTAMP, null), 
+	('C3', 'Electronica', 1, CURRENT_TIMESTAMP, null), 
+	('D4', 'Línea blanca', 1, CURRENT_TIMESTAMP, null), 
+	('E5', 'Comida', 1, CURRENT_TIMESTAMP, null);
 
 -- tblProducts
 INSERT INTO tblproducts (idproducttype, vcode, vname, dprice, bstatus, dcreate, dupdate)   
 VALUES 
-	(1, '00001', 'Brocha', 10.50, 1, default, null),
-	(2, '00002', 'Croquetas', 500, 1, default, null),
-	(3, '00003', 'Laptop', 14000, 1, default, null),
-	(4, '00004', 'Lavadora', 8500.45, 1, default, null),
-	(5, '00005', 'Pierna de jamón', 745, 1, default, null);
+	(1, '00001', 'Brocha', 10.50, 1, CURRENT_TIMESTAMP, null),
+	(2, '00002', 'Croquetas', 500, 1, CURRENT_TIMESTAMP, null),
+	(3, '00003', 'Laptop', 14000, 1, CURRENT_TIMESTAMP, null),
+	(4, '00004', 'Lavadora', 8500.45, 1, CURRENT_TIMESTAMP, null),
+	(5, '00005', 'Pierna de jamón', 745, 1, CURRENT_TIMESTAMP, null);
 
 -- tblsuppliers
 INSERT INTO tblsuppliers (vname, bstatus, dcreate, dupdate)
 VALUES
-	('P01', 1, default, null),
-	('P02', 1, default, null),
-	('P03', 1, default, null),
-	('P04', 1, default, null),
-	('P05', 1, default, null);
+	('P01', 1, CURRENT_TIMESTAMP, null),
+	('P02', 1, CURRENT_TIMESTAMP, null),
+	('P03', 1, CURRENT_TIMESTAMP, null),
+	('P04', 1, CURRENT_TIMESTAMP, null),
+	('P05', 1, CURRENT_TIMESTAMP, null);
 
 -- relprodsupp 
 INSERT INTO relprodsupp (idproduct, idsupplier, vcode, dprice)

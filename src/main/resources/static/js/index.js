@@ -108,7 +108,7 @@ function createtable(filter){
 		});
 		
 		$('.btn-edit').click(function(){
-			this.productoption = 2;
+			productoption = 2;
 			let idproduct = $(this).val();
 			
 			fetch('http://localhost:8080/api/products/getinfoproduct/' + idproduct)
@@ -230,7 +230,7 @@ function cleanfields(){
 	$('#code').val('');
 	$('#producttype').val(1);
 	$('#name').val('');
-	$("ourprice").val('');
+	$("#ourprice").val('');
 }
 
 function cancelaction(){
@@ -240,17 +240,24 @@ function cancelaction(){
 }
 
 function newproduct(){
-	this.productoption = 1;
+	productoption = 1;
+	$("#tableproducts tbody").children().remove();
 	changemode(2);	
+	cleanfields();
+	$('#btnaddsuplier').css('display', 'none');
 }
 
 function saveproduct(){
 	
 	if($('#code').val() != "" && $("#name").val() != "" && $("#ourprice").val() != "" && $('#producttype').val() > 0){
 		let product;
+		let path = "";
+		
+		console.log(productoption);
 	
-		switch(this.productoption){
+		switch(productoption){
 			case 1: // CREAR
+			console.log("Nuevo");
 			product = {
 				"idproducttype" : $('#producttype').val(),
 				"vcode" : $('#code').val(),
@@ -259,8 +266,11 @@ function saveproduct(){
 				"bstatus" : $("#isactive").prop("checked"),
 				"dcreate" : new Date()
 			}
+			
+			path = "saveproduct";
 			break;
 			case 2: // ACTUALIZAR
+			console.log("Actualizar");
 			product = {
 				"idproduct" : $("#idproduct").val(),
 				"idproducttype" : $('#producttype').val(),
@@ -270,10 +280,12 @@ function saveproduct(){
 				"bstatus" : $("#isactive").prop("checked"),
 				"dupdate" : new Date()
 			}
+			
+			path = "updateproduct";
 			break;
 		}
 		
-		fetch('http://localhost:8080/api/products/saveproduct', {
+		fetch('http://localhost:8080/api/products/' + path, {
 	    	method: 'POST',
 	    	headers: {'Content-Type': 'application/json' },
 			body: JSON.stringify(product)

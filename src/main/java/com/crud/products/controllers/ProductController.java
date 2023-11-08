@@ -85,7 +85,7 @@ public class ProductController {
 	}
 	
 	// Editar
-	@PostMapping("/updateProduct")
+	@PostMapping("/updateproduct")
 	public ResponseEntity<?> update(@RequestBody Product product) {
 		Map<String, Object> msg = new HashMap<>();
 		try {
