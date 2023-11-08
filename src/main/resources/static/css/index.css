@@ -1,0 +1,120 @@
+.title{
+	padding: 5px 30px;
+}
+
+/* Tabla */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+#tablecontainer {
+	margin: 10px;
+}
+
+#tableproducts {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tableproducts th {
+    background-color: #666;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+}
+
+#tableproducts th, #tableproducts td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.btn {
+    padding: 5px 10px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.btn-add-supplier {
+    background-color: #7878FE;
+}
+
+.btn-add-supplier:hover {
+    background-color: #0605FE;
+}
+
+.btn-add, .btn-save {
+    background-color: #64DD17;
+}
+
+.btn-add:hover, .btn-save:hover {
+    background-color: #33691E;
+}
+
+.btn-delete, .btn-cancel, .btn-deletesupp {
+	background-color: #F44336;
+}
+
+.btn-delete:hover, .btn-cancel:hover, .btn-deletesupp:hover {
+	background-color: #DD2C00;
+}
+
+.btn-edit, .btn-search {
+    background-color: #4E97D1;
+}
+
+.btn-edit:hover, .btn-search:hover {
+    background-color: #00569D;
+}
+
+.btnscontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.component{
+	margin: 0px 20px;
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.modalcontent {
+    position: relative;
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+#formsuppliers label {
+	display:block;
+}
+
+#formsuppliers select, #formsuppliers input {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
