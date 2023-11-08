@@ -1,3 +1,8 @@
+config = {
+  	path: "http://localhost:8080",
+	context: "ms-compras/"
+}
+
 $(document).ready(function() {
 	
 	$('#code').keyup(function(){
@@ -20,7 +25,7 @@ $(document).ready(function() {
 	
 	$("#btnaddsuplier").click(function() {
         $("#modalsuppliers").show();
-        $("#contentmodal").load('/modal');
+        $("#contentmodal").load(`modal`);
     });	
     
     $("#closemodal").click(function() {
@@ -58,7 +63,7 @@ function createtable(filter){
 	tbody.children().remove();
 	
 	const myPromise = new Promise((resolve, reject) => {
-    	fetch('http://localhost:8080/api/products/findall', {
+    	fetch(`${config.path}/${config.context}api/products/findall`, {
         	method: 'POST',
         	headers: {'Content-Type': 'application/json' },
  			body: JSON.stringify(filter)
@@ -93,7 +98,7 @@ function createtable(filter){
 	
 	myPromise.then(function(){
 		$('.btn-delete').click(function(){
-			fetch('http://localhost:8080/api/products/deleteproduct/' + $(this).val(), {
+			fetch(`${config.path}/${config.context}api/products/deleteproduct/` + $(this).val(), {
 	        	method: 'DELETE'
 		    }).then(response => response.json())
 			  .then(function(data){
@@ -111,7 +116,7 @@ function createtable(filter){
 			productoption = 2;
 			let idproduct = $(this).val();
 			
-			fetch('http://localhost:8080/api/products/getinfoproduct/' + idproduct)
+			fetch(`${config.path}/${config.context}api/products/getinfoproduct/` + idproduct)
 				.then(response => response.json())
 			  	.then(function(data){
 				  	if(data.res != null){
@@ -134,7 +139,7 @@ function selectproducttypes(){
 	option = `<option value="0"></option>`;
   	select.append(option);
 	
-	fetch('http://localhost:8080/api/products/gettypes')
+	fetch(`${config.path}/${config.context}api/products/gettypes`)
 		  .then(response => response.json())
 		  .then(function(data){
 			  if(data.res != null){
@@ -176,7 +181,7 @@ function suppliersbyprod(idproduct){
 	tbody.children().remove();
 	
 	const myPromise = new Promise((resolve, reject) => {
-    	fetch('http://localhost:8080/api/products/getsuppliersbyproduct/' + idproduct)
+    	fetch(`${config.path}/${config.context}api/products/getsuppliersbyproduct/` + idproduct)
 		  .then(response => response.json())
 		  .then(function(data){
 			  if(data.res != null){
@@ -209,7 +214,7 @@ function suppliersbyprod(idproduct){
 	
 	myPromise.then(function(){
 		$('.btn-deletesupp').click(function(){			
-			fetch('http://localhost:8080/api/products/deletesupplier/' + $(this).val(), {
+			fetch(`${config.path}/${config.context}api/products/deletesupplier/` + $(this).val(), {
 	        	method: 'DELETE'
 		    }).then(response => response.json())
 			  .then(function(data){
@@ -285,7 +290,7 @@ function saveproduct(){
 			break;
 		}
 		
-		fetch('http://localhost:8080/api/products/' + path, {
+		fetch(`${config.path}/${config.context}api/products/` + path, {
 	    	method: 'POST',
 	    	headers: {'Content-Type': 'application/json' },
 			body: JSON.stringify(product)

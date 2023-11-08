@@ -17,7 +17,7 @@ function selectsuppliers(){
 	option = `<option value="0"></option>`;
 	select.append(option);
 	
-	fetch('http://localhost:8080/api/products/getallsuppliers')
+	fetch(`${config.path}/${config.context}api/products/getallsuppliers`)
 	  .then(response => response.json())
 	  .then(function(data){
 		  if(data.res != null){
@@ -44,7 +44,7 @@ $('#btnsaverelprodsupp').click(function(event) {
 		"dprice" : $('#priceprod').val()
 	}
 	
-	fetch('http://localhost:8080/api/products/createrelprodsupp', {
+	fetch(`${config.path}/${config.context}api/products/createrelprodsupp`, {
     	method: 'POST',
     	headers: {'Content-Type': 'application/json' },
 		body: JSON.stringify(crelprodsupp)
