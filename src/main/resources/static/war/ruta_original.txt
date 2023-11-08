@@ -1,0 +1,3 @@
+ms-compras\target\ms-compras-0.0.1-SNAPSHOT.war
+
+# Esa es la ruta y nombre originales del war 
